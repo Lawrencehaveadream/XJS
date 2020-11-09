@@ -66,6 +66,11 @@ namespace HZZH.UI2
 
         public static void Show(string formName)
         {
+            if (string.IsNullOrWhiteSpace(formName))
+            {
+                return;
+            }
+
             char[] split = new char[] { ',' };
             string[] array = formName.Split(split);
             int index = 0;
@@ -77,7 +82,6 @@ namespace HZZH.UI2
 
             if (container != null && object.ReferenceEquals(showFrom, baseSubForm) == false)
             {
-
                 SendMessage(container.Handle, WM_SETREDRAW, 0, 0);
 
                 if (showFrom != null)

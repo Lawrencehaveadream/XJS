@@ -18,8 +18,8 @@ using System.Timers;
 using LicenseManagement;
 using ApiClass;
 using HZZH;
-using HzControl.Communal.Control;
-using HZZH.Logic.UI;
+using HzControl.Communal.Controls;
+using System.Collections;
 
 namespace UI
 {
@@ -324,7 +324,7 @@ namespace UI
         private InputOutput IOControl;
         private UserInfo userInfo;
         private FormLog frmLog;
-        private Frm_Runing frm_Stick;
+
 
         private Frm_MotorParam Frm_Machine;
 
@@ -333,17 +333,17 @@ namespace UI
             StartUpdate.SendStartMsg("初始化控件");
             frmLog = new FormLog();
             userInfo = new UserInfo();
-            frm_Stick = new Frm_Runing();
+            //frm_Stick = null;
 
             Frm_Machine = new Frm_MotorParam();
 
-            frm_Stick.TopLevel = false; //将子窗体设置成非最高层，非顶级控件
-            frm_Stick.FormBorderStyle = FormBorderStyle.None;//去掉窗体边框
-            frm_Stick.Size = this.panel1.Size;
-            frm_Stick.Parent = this.panel1;//指定子窗体显示的容器
-            frm_Stick.Dock = DockStyle.Fill;
-            frm_Stick.Show();
-            frm_Stick.Activate();
+            //frm_Stick.TopLevel = false; //将子窗体设置成非最高层，非顶级控件
+            //frm_Stick.FormBorderStyle = FormBorderStyle.None;//去掉窗体边框
+            //frm_Stick.Size = this.panel1.Size;
+            //frm_Stick.Parent = this.panel1;//指定子窗体显示的容器
+            //frm_Stick.Dock = DockStyle.Fill;
+            //frm_Stick.Show();
+            //frm_Stick.Activate();
 
             skinTabControl1.ItemSize = new Size(0, 1);
             skinTabControl1.Appearance = TabAppearance.FlatButtons;
@@ -523,7 +523,7 @@ namespace UI
                 //ProjectData.Instance.SaveData.StickData.TrayData.rectangle2[0].Length1 = Rectangle2s.Length1;
                 //ProjectData.Instance.SaveData.StickData.TrayData.rectangle2[0].Length2 = Rectangle2s.Length2;
                 //ProjectData.Instance.SaveData.StickData.TrayData.rectangle2[0].Phi = Rectangle2s.Phi;
-
+                
 
                 //if (pathRoad != null)
                 //{

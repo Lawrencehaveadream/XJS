@@ -1,5 +1,4 @@
-﻿using HalconDotNet;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.IO;

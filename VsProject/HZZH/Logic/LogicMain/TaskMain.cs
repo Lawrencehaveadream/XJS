@@ -15,20 +15,6 @@ namespace HZZH.Logic.LogicMain
         public static LogicLoopRun LogicLoop { get; set; }
 
 
-       // public static TrayDeskDef TrayDesk { get; set; }
-       // public static TrayJumpDef TrayJump { get; set; }
-       // public static TrayLoadDef TrayLoad { get; set; }
-       //  public static TrayUnloadDef TrayUnload { get; set; }
-       //public static StackLoadDef StackLoad { get; set; }
-       // public static StackUnloadDef StackUnload { get; set; }
-       // public static PickJumpDef PickJump { get; set; }
-       // public static PickDetectDef PickDetect { get; set; }
-       // public static PickDiscardDef PickDiscard { get; set; }
-       // public static PickPutDef PickPut { get; set; }
-       // public static PickTakeDef PickTake { get; set; }
-       // public static WaferDeskDef WaferDesk { get; set; }
-       // public static WaferSeekDef WaferSeek { get; set; }
-       // public static RockerDef Rocker { get; set; }
 
         static TaskMain()
         {
@@ -36,20 +22,6 @@ namespace HZZH.Logic.LogicMain
             ResetLogic = new ResetLogicDef();
             LogicLoop = new LogicLoopRun();
 
-            //TrayDesk = new TrayDeskDef();
-            //TrayJump = new TrayJumpDef();
-            //TrayLoad = new TrayLoadDef();
-            //TrayUnload = new TrayUnloadDef();
-            //StackLoad = new StackLoadDef();
-            //StackUnload = new StackUnloadDef();
-            //PickJump = new PickJumpDef();
-            //PickDetect = new PickDetectDef();
-            //PickDiscard = new PickDiscardDef();
-            //PickPut = new PickPutDef();
-            //PickTake = new PickTakeDef();
-            //WaferDesk = new WaferDeskDef();
-            //WaferSeek = new WaferSeekDef();
-            //Rocker = new RockerDef();
         }
 
         public static void Init()
@@ -61,21 +33,7 @@ namespace HZZH.Logic.LogicMain
             TaskManager.Default.Add(LogicLoop);
 
 
-            //TaskManager.Default.Add(TrayDesk);
-            //TaskManager.Default.Add(TrayJump);
-            //TaskManager.Default.Add(TrayLoad);
-            //TaskManager.Default.Add(TrayUnload);
-            //TaskManager.Default.Add(StackLoad);
-            //TaskManager.Default.Add(StackUnload);
-            //TaskManager.Default.Add(PickJump);
-            //TaskManager.Default.Add(PickDetect);
 
-            //TaskManager.Default.Add(PickDiscard);
-            //TaskManager.Default.Add(PickPut);
-            //TaskManager.Default.Add(PickTake);
-            //TaskManager.Default.Add(WaferDesk);
-            //TaskManager.Default.Add(WaferSeek);
-            //TaskManager.Default.Add(Rocker);
 
         }
 

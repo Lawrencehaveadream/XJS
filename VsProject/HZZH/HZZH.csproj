@@ -60,9 +60,18 @@
     <Reference Include="CSkin">
       <HintPath>..\..\..\CSkin.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\C# 数据结构\底层库\HZZHController\HZZH\bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Modbus">
+      <HintPath>ReferencedAssemblies\Modbus.dll</HintPath>
     </Reference>
     <Reference Include="MotionCardDrive, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -77,6 +86,7 @@
       <HintPath>..\..\Sqlite\Sqlite\bin\Debug\SqliteNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.107.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -122,51 +132,79 @@
     <Compile Include="Common\Config\ConfigUser.cs" />
     <Compile Include="Common\Config\HandleConfig.cs" />
     <Compile Include="Common\Typedef\LogicDataDef.cs" />
+    <Compile Include="Communal\Control\FigureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Communal\Control\FigureForm.designer.cs">
+      <DependentUpon>FigureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Communal\Control\MyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Communal\Control\UserBingData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Communal\Rank.cs" />
+    <Compile Include="Database\Product.cs" />
     <Compile Include="Logic\Commmon\LedLampStandard.cs" />
+    <Compile Include="Logic\LogicMain\Product.cs" />
     <Compile Include="Logic\LogicMain\TaskMain.cs" />
     <Compile Include="Logic\LogicMain\LogicLoopRun.cs" />
     <Compile Include="Logic\LogicMain\LogicMainDef.cs" />
     <Compile Include="Logic\LogicMain\ResetLogicDef.cs" />
     <Compile Include="Logic\SubLogicPrg\UVW对位流程.cs" />
-    <Compile Include="Logic\SubLogicPrg\UVW平台.cs" />
+    <Compile Include="Logic\UVWCtrl\UVW平台.cs" />
     <Compile Include="Logic\SubLogicPrg\轨道上料流程.cs" />
     <Compile Include="Logic\SubLogicPrg\轨道出料流程.cs" />
     <Compile Include="Logic\SubLogicPrg\锡膏印刷流程.cs" />
-    <Compile Include="Logic\UI\Frm_Runing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Logic\UI\Frm_Runing.Designer.cs">
-      <DependentUpon>Frm_Runing.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Logic\UVWCtrl\UVWConvertXYR.cs" />
     <Compile Include="UI2\BaseSubForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI2\BaseSubForm.Designer.cs">
       <DependentUpon>BaseSubForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI2\位置设置.cs">
+    <Compile Include="UI2\MessageShowForm2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI2\位置设置.Designer.cs">
+    <Compile Include="UI2\MessageShowForm2.Designer.cs">
+      <DependentUpon>MessageShowForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI2\MessageShowForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\MessageShowForm1.Designer.cs">
+      <DependentUpon>MessageShowForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI2\ProductSwitchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\ProductSwitchForm.Designer.cs">
+      <DependentUpon>ProductSwitchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI2\锡膏印刷\位置设置.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\锡膏印刷\位置设置.Designer.cs">
       <DependentUpon>位置设置.cs</DependentUpon>
     </Compile>
     <Compile Include="UI2\FormMgr.cs" />
-    <Compile Include="UI2\InputIOForm.cs">
+    <Compile Include="UI2\锡膏印刷\InputIOForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI2\InputIOForm.Designer.cs">
+    <Compile Include="UI2\锡膏印刷\InputIOForm.Designer.cs">
       <DependentUpon>InputIOForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI2\UVW平台.cs">
+    <Compile Include="UI2\锡膏印刷\UVW平台.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI2\UVW平台.Designer.cs">
+    <Compile Include="UI2\锡膏印刷\UVW平台.Designer.cs">
       <DependentUpon>UVW平台.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI2\LoadingForm.cs">
+    <Compile Include="UI2\锡膏印刷\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI2\LoadingForm.Designer.cs">
+    <Compile Include="UI2\锡膏印刷\LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI2\MainForm.cs">
@@ -175,80 +213,80 @@
     <Compile Include="UI2\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI2\MapForm.cs">
+    <Compile Include="UI2\锡膏印刷\MotorParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI2\MapForm.Designer.cs">
-      <DependentUpon>MapForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI2\MotorParamForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI2\MotorParamForm.Designer.cs">
+    <Compile Include="UI2\锡膏印刷\MotorParamForm.Designer.cs">
       <DependentUpon>MotorParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI2\ParamForm.cs">
+    <Compile Include="UI2\锡膏印刷\ParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI2\ParamForm.Designer.cs">
+    <Compile Include="UI2\锡膏印刷\ParamForm.Designer.cs">
       <DependentUpon>ParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI2\RunForm.cs">
+    <Compile Include="UI2\锡膏印刷\RunForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI2\RunForm.Designer.cs">
+    <Compile Include="UI2\锡膏印刷\RunForm.Designer.cs">
       <DependentUpon>RunForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI2\BottomForm.cs">
+    <Compile Include="UI2\锡膏印刷\BottomForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI2\BottomForm.Designer.cs">
+    <Compile Include="UI2\锡膏印刷\BottomForm.Designer.cs">
       <DependentUpon>BottomForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI2\VisForm.cs">
+    <Compile Include="UI2\锡膏印刷\VisForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI2\VisForm.Designer.cs">
+    <Compile Include="UI2\锡膏印刷\VisForm.Designer.cs">
       <DependentUpon>VisForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Vision\PointLocation.cs" />
-    <EmbeddedResource Include="Logic\UI\Frm_Runing.resx">
-      <DependentUpon>Frm_Runing.cs</DependentUpon>
+    <EmbeddedResource Include="Communal\Control\FigureForm.resx">
+      <DependentUpon>FigureForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI2\BaseSubForm.resx">
       <DependentUpon>BaseSubForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI2\位置设置.resx">
+    <EmbeddedResource Include="UI2\MessageShowForm2.resx">
+      <DependentUpon>MessageShowForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI2\MessageShowForm1.resx">
+      <DependentUpon>MessageShowForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI2\ProductSwitchForm.resx">
+      <DependentUpon>ProductSwitchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI2\锡膏印刷\位置设置.resx">
       <DependentUpon>位置设置.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI2\InputIOForm.resx">
+    <EmbeddedResource Include="UI2\锡膏印刷\InputIOForm.resx">
       <DependentUpon>InputIOForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI2\UVW平台.resx">
+    <EmbeddedResource Include="UI2\锡膏印刷\UVW平台.resx">
       <DependentUpon>UVW平台.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI2\LoadingForm.resx">
+    <EmbeddedResource Include="UI2\锡膏印刷\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI2\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI2\MapForm.resx">
-      <DependentUpon>MapForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI2\MotorParamForm.resx">
+    <EmbeddedResource Include="UI2\锡膏印刷\MotorParamForm.resx">
       <DependentUpon>MotorParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI2\ParamForm.resx">
+    <EmbeddedResource Include="UI2\锡膏印刷\ParamForm.resx">
       <DependentUpon>ParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI2\RunForm.resx">
+    <EmbeddedResource Include="UI2\锡膏印刷\RunForm.resx">
       <DependentUpon>RunForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI2\BottomForm.resx">
+    <EmbeddedResource Include="UI2\锡膏印刷\BottomForm.resx">
       <DependentUpon>BottomForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI2\VisForm.resx">
+    <EmbeddedResource Include="UI2\锡膏印刷\VisForm.resx">
       <DependentUpon>VisForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_NewProject.resx">
@@ -443,9 +481,11 @@
     <Content Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Communal\Control\" />
     <Folder Include="Communal\Internal\" />
     <Folder Include="Communal\Tools\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

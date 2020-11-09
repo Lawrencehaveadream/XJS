@@ -344,6 +344,7 @@ namespace UI
         {
             //this.PrimaryForm = new FormMain();//主窗体 
             this.PrimaryForm = new HZZH.UI2.MainForm();//主窗体 
+
         }
 
 

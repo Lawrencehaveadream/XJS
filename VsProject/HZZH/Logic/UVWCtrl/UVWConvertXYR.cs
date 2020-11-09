@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HZZH.Communal.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,21 @@ using System.Threading.Tasks;
 
 namespace HZZH.Logic.UVWCtrl
 {
-    public class UVWConvertXYR
+    [Serializable]
+    public class UVWConvertXYR : ProductBase
     {
         public float X1Theta { get; set; }
         public float X2Theta { get; set; }
         public float YTheta { get; set; }
         public float Rotate { get; set; }
 
+
+        public float X1ReadyPos { get; set; }
+        public float X2ReadyPos { get; set; }
+        public float YReadyPos { get; set; }
+
+
+        public UVWConvertXYR() { }
 
         public UVWConvertXYR(float x1Theta, float x2Theta, float yTheta,float rotate)
         {

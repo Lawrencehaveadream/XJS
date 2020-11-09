@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Communal\Control\VistaFolderBrowserDialog.cs">
+    <Compile Include="Communal\Controls\VistaFolderBrowserDialog.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Logic\IReadWrite.cs" />

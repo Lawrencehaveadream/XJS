@@ -92,6 +92,7 @@
             this.点胶参数Tag = new CCWin.SkinControl.SkinTabPage();
             this.主页Tag = new CCWin.SkinControl.SkinTabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.myTextBox1 = new HzControl.Communal.Controls.MyTextBox();
             this.skinTabControl1 = new CCWin.SkinControl.SkinTabControl();
             this.skinTabPage1 = new CCWin.SkinControl.SkinTabPage();
             this.groupBox47 = new System.Windows.Forms.GroupBox();
@@ -110,6 +111,7 @@
             this.lbl_maID = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.lbl_msg = new System.Windows.Forms.Label();
+            this.userBingData1 = new HzControl.Communal.Controls.UserBingData();
             this.contextMenuStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -119,6 +121,7 @@
             this.电机参数Tag.SuspendLayout();
             this.参数设置Tag.SuspendLayout();
             this.主页Tag.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.skinTabControl1.SuspendLayout();
             this.skinTabPage1.SuspendLayout();
             this.groupBox47.SuspendLayout();
@@ -679,7 +682,7 @@
             // 
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1685, 925);
             this.panel11.TabIndex = 0;
@@ -701,7 +704,7 @@
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1685, 925);
             this.panel6.TabIndex = 0;
@@ -723,7 +726,7 @@
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1685, 925);
             this.panel3.TabIndex = 0;
@@ -745,7 +748,7 @@
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1685, 925);
             this.panel9.TabIndex = 0;
@@ -767,7 +770,7 @@
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1685, 925);
             this.panel2.TabIndex = 0;
@@ -777,7 +780,7 @@
             this.点胶参数Tag.BackColor = System.Drawing.Color.White;
             this.点胶参数Tag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.点胶参数Tag.Location = new System.Drawing.Point(0, 36);
-            this.点胶参数Tag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.点胶参数Tag.Margin = new System.Windows.Forms.Padding(4);
             this.点胶参数Tag.Name = "点胶参数Tag";
             this.点胶参数Tag.Size = new System.Drawing.Size(1685, 925);
             this.点胶参数Tag.TabIndex = 6;
@@ -799,12 +802,26 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.myTextBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1685, 925);
             this.panel1.TabIndex = 20;
+            // 
+            // myTextBox1
+            // 
+            this.myTextBox1.AutoSize = true;
+            this.userBingData1.SetBindingName(this.myTextBox1, "123");
+            this.myTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.myTextBox1.Font = new System.Drawing.Font("黑体", 24F, System.Drawing.FontStyle.Bold);
+            this.myTextBox1.Location = new System.Drawing.Point(358, 183);
+            this.myTextBox1.Name = "myTextBox1";
+            this.myTextBox1.Size = new System.Drawing.Size(229, 42);
+            this.myTextBox1.TabIndex = 0;
+            this.myTextBox1.Text = "myTextBox1";
+            this.myTextBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // skinTabControl1
             // 
@@ -845,7 +862,7 @@
             this.skinTabPage1.Controls.Add(this.groupBox47);
             this.skinTabPage1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.skinTabPage1.Location = new System.Drawing.Point(0, 36);
-            this.skinTabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.skinTabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.skinTabPage1.Name = "skinTabPage1";
             this.skinTabPage1.Size = new System.Drawing.Size(1685, 925);
             this.skinTabPage1.TabIndex = 7;
@@ -858,9 +875,9 @@
             this.groupBox47.Controls.Add(this.panel25);
             this.groupBox47.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox47.Location = new System.Drawing.Point(147, 98);
-            this.groupBox47.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox47.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox47.Name = "groupBox47";
-            this.groupBox47.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox47.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox47.Size = new System.Drawing.Size(971, 519);
             this.groupBox47.TabIndex = 5;
             this.groupBox47.TabStop = false;
@@ -890,9 +907,9 @@
             this.groupBox5_ma.Controls.Add(this.txt_permit);
             this.groupBox5_ma.Controls.Add(this.label95);
             this.groupBox5_ma.Location = new System.Drawing.Point(31, 300);
-            this.groupBox5_ma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5_ma.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5_ma.Name = "groupBox5_ma";
-            this.groupBox5_ma.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5_ma.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5_ma.Size = new System.Drawing.Size(887, 119);
             this.groupBox5_ma.TabIndex = 13;
             this.groupBox5_ma.TabStop = false;
@@ -902,7 +919,7 @@
             // 
             this.btn_register.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_register.Location = new System.Drawing.Point(752, 42);
-            this.btn_register.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_register.Margin = new System.Windows.Forms.Padding(4);
             this.btn_register.Name = "btn_register";
             this.btn_register.Size = new System.Drawing.Size(116, 42);
             this.btn_register.TabIndex = 9;
@@ -914,7 +931,7 @@
             this.txt_permit.BackColor = System.Drawing.SystemColors.Control;
             this.txt_permit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_permit.Location = new System.Drawing.Point(127, 48);
-            this.txt_permit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_permit.Margin = new System.Windows.Forms.Padding(4);
             this.txt_permit.Name = "txt_permit";
             this.txt_permit.Size = new System.Drawing.Size(604, 30);
             this.txt_permit.TabIndex = 8;
@@ -934,7 +951,7 @@
             this.txt_mature.BackColor = System.Drawing.SystemColors.Control;
             this.txt_mature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_mature.Location = new System.Drawing.Point(168, 241);
-            this.txt_mature.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_mature.Margin = new System.Windows.Forms.Padding(4);
             this.txt_mature.Name = "txt_mature";
             this.txt_mature.ReadOnly = true;
             this.txt_mature.Size = new System.Drawing.Size(604, 30);
@@ -955,7 +972,7 @@
             this.txt_press.BackColor = System.Drawing.SystemColors.Control;
             this.txt_press.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_press.Location = new System.Drawing.Point(168, 159);
-            this.txt_press.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_press.Margin = new System.Windows.Forms.Padding(4);
             this.txt_press.Name = "txt_press";
             this.txt_press.ReadOnly = true;
             this.txt_press.Size = new System.Drawing.Size(604, 30);
@@ -976,7 +993,7 @@
             this.txt_MachineID.BackColor = System.Drawing.SystemColors.Control;
             this.txt_MachineID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MachineID.Location = new System.Drawing.Point(168, 71);
-            this.txt_MachineID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_MachineID.Margin = new System.Windows.Forms.Padding(4);
             this.txt_MachineID.Name = "txt_MachineID";
             this.txt_MachineID.ReadOnly = true;
             this.txt_MachineID.Size = new System.Drawing.Size(604, 30);
@@ -1022,7 +1039,7 @@
             this.panel25.Controls.Add(this.lbl_msg);
             this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel25.Location = new System.Drawing.Point(4, 28);
-            this.panel25.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel25.Margin = new System.Windows.Forms.Padding(4);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(963, 45);
             this.panel25.TabIndex = 14;
@@ -1051,7 +1068,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "深圳市鸿圆机械电器设备有限公司        FOF Mylar自动化设备 V00.01.08";
@@ -1071,6 +1088,8 @@
             this.电机参数Tag.ResumeLayout(false);
             this.参数设置Tag.ResumeLayout(false);
             this.主页Tag.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.skinTabControl1.ResumeLayout(false);
             this.skinTabPage1.ResumeLayout(false);
             this.groupBox47.ResumeLayout(false);
@@ -1168,5 +1187,7 @@
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.Label lbl_msg;
         private System.Windows.Forms.ToolStripMenuItem mES系统ToolStripMenuItem;
+        private HzControl.Communal.Controls.UserBingData userBingData1;
+        private HzControl.Communal.Controls.MyTextBox myTextBox1;
     }
 }
