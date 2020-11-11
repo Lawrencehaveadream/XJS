@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,7 @@ namespace HzControl.Communal.Controls
             base.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             base.AutoSize = false;
 
-            Format = "{0:F3}";
+            Format = "F2";
             MAX = 32767;
             MIN = -32767;
             KeyBoard = true;
@@ -65,7 +66,7 @@ namespace HzControl.Communal.Controls
                     }
                     if (FigureForm.ShowKeyBoard(Convert.ToSingle(MIN), Convert.ToSingle(MAX), ref result))
                     {
-                        this.Text = string.Format(this.Format, result);
+                        this.Text = string.Format("{0:" + Format + "}", result);
                     }
                 }
                 else
@@ -81,7 +82,7 @@ namespace HzControl.Communal.Controls
 
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        [Browsable(true), Category("自定义属性"), Description("float类型格式化字符串"), DefaultValue(typeof(string), "{0:F3}")]
+        [Browsable(true), Category("自定义属性"), Description("float类型格式化字符串"), DefaultValue(typeof(string), "{F2}")]
         public string Format
         {
             get;
@@ -122,12 +123,16 @@ namespace HzControl.Communal.Controls
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Browsable(true), Category("自定义属性"), Description("文本内容"), DefaultValue("TextBox")]
+
+
         public new string Text
         {
+            [MethodImpl(MethodImplOptions.Synchronized)]
             get
             {
                 return base.Text;
             }
+            [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
                 if (base.Text != value)

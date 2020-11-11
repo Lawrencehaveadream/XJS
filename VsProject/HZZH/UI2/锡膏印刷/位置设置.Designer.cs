@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(位置设置));
             this.button31 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
@@ -82,6 +83,7 @@
             this.myTextBox14 = new HzControl.Communal.Controls.MyTextBox();
             this.myTextBox15 = new HzControl.Communal.Controls.MyTextBox();
             this.myTextBox16 = new HzControl.Communal.Controls.MyTextBox();
+            this.userBingData1 = new HzControl.Communal.Controls.UserBingData(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -470,9 +472,10 @@
             // myTextBox1
             // 
             this.myTextBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.userBingData1.SetBindingName(this.myTextBox1, "Pos.CamPre.X");
             this.myTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox1.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox1.Format = "{0:F2}";
+            this.myTextBox1.Format = "F2";
             this.myTextBox1.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox1.Location = new System.Drawing.Point(136, 71);
             this.myTextBox1.Name = "myTextBox1";
@@ -484,9 +487,10 @@
             // myTextBox2
             // 
             this.myTextBox2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.userBingData1.SetBindingName(this.myTextBox2, "Pos.CamPre.Y");
             this.myTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox2.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox2.Format = "{0:F2}";
+            this.myTextBox2.Format = "F2";
             this.myTextBox2.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox2.Location = new System.Drawing.Point(261, 71);
             this.myTextBox2.Name = "myTextBox2";
@@ -498,9 +502,10 @@
             // myTextBox3
             // 
             this.myTextBox3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.userBingData1.SetBindingName(this.myTextBox3, "Pos.CamPos1.X");
             this.myTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox3.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox3.Format = "{0:F2}";
+            this.myTextBox3.Format = "F2";
             this.myTextBox3.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox3.Location = new System.Drawing.Point(136, 128);
             this.myTextBox3.Name = "myTextBox3";
@@ -512,9 +517,10 @@
             // myTextBox4
             // 
             this.myTextBox4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.userBingData1.SetBindingName(this.myTextBox4, "Pos.CamPos1.Y");
             this.myTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox4.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox4.Format = "{0:F2}";
+            this.myTextBox4.Format = "F2";
             this.myTextBox4.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox4.Location = new System.Drawing.Point(261, 128);
             this.myTextBox4.Name = "myTextBox4";
@@ -526,9 +532,10 @@
             // myTextBox5
             // 
             this.myTextBox5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.userBingData1.SetBindingName(this.myTextBox5, "Pos.CamPos2.X");
             this.myTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox5.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox5.Format = "{0:F2}";
+            this.myTextBox5.Format = "F2";
             this.myTextBox5.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox5.Location = new System.Drawing.Point(136, 187);
             this.myTextBox5.Name = "myTextBox5";
@@ -540,9 +547,10 @@
             // myTextBox6
             // 
             this.myTextBox6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.userBingData1.SetBindingName(this.myTextBox6, "Pos.CamPos2.Y");
             this.myTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox6.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox6.Format = "{0:F2}";
+            this.myTextBox6.Format = "F2";
             this.myTextBox6.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox6.Location = new System.Drawing.Point(261, 187);
             this.myTextBox6.Name = "myTextBox6";
@@ -554,9 +562,10 @@
             // myTextBox7
             // 
             this.myTextBox7.BackColor = System.Drawing.Color.Yellow;
+            this.userBingData1.SetBindingName(this.myTextBox7, "");
             this.myTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox7.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox7.Format = "{0:F2}";
+            this.myTextBox7.Format = "F2";
             this.myTextBox7.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox7.KeyBoard = false;
             this.myTextBox7.Location = new System.Drawing.Point(136, 33);
@@ -569,9 +578,10 @@
             // myTextBox8
             // 
             this.myTextBox8.BackColor = System.Drawing.Color.Yellow;
+            this.userBingData1.SetBindingName(this.myTextBox8, "");
             this.myTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox8.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox8.Format = "{0:F2}";
+            this.myTextBox8.Format = "F2";
             this.myTextBox8.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox8.KeyBoard = false;
             this.myTextBox8.Location = new System.Drawing.Point(261, 33);
@@ -584,9 +594,10 @@
             // myTextBox9
             // 
             this.myTextBox9.BackColor = System.Drawing.Color.Yellow;
+            this.userBingData1.SetBindingName(this.myTextBox9, "");
             this.myTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox9.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox9.Format = "{0:F2}";
+            this.myTextBox9.Format = "F2";
             this.myTextBox9.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox9.KeyBoard = false;
             this.myTextBox9.Location = new System.Drawing.Point(661, 46);
@@ -598,9 +609,10 @@
             // 
             // myTextBox10
             // 
+            this.userBingData1.SetBindingName(this.myTextBox10, "Pos.ScraperStar");
             this.myTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox10.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox10.Format = "{0:F2}";
+            this.myTextBox10.Format = "F2";
             this.myTextBox10.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox10.Location = new System.Drawing.Point(661, 108);
             this.myTextBox10.Name = "myTextBox10";
@@ -611,9 +623,10 @@
             // 
             // myTextBox11
             // 
+            this.userBingData1.SetBindingName(this.myTextBox11, "Pos.ScraperEnd");
             this.myTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox11.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox11.Format = "{0:F2}";
+            this.myTextBox11.Format = "F2";
             this.myTextBox11.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox11.Location = new System.Drawing.Point(661, 166);
             this.myTextBox11.Name = "myTextBox11";
@@ -625,9 +638,10 @@
             // myTextBox12
             // 
             this.myTextBox12.BackColor = System.Drawing.Color.Yellow;
+            this.userBingData1.SetBindingName(this.myTextBox12, "");
             this.myTextBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox12.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox12.Format = "{0:F2}";
+            this.myTextBox12.Format = "F2";
             this.myTextBox12.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox12.KeyBoard = false;
             this.myTextBox12.Location = new System.Drawing.Point(924, 118);
@@ -639,9 +653,10 @@
             // 
             // myTextBox13
             // 
+            this.userBingData1.SetBindingName(this.myTextBox13, "Pos.JackScrapPos");
             this.myTextBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox13.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox13.Format = "{0:F2}";
+            this.myTextBox13.Format = "F2";
             this.myTextBox13.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox13.Location = new System.Drawing.Point(659, 294);
             this.myTextBox13.Name = "myTextBox13";
@@ -652,9 +667,10 @@
             // 
             // myTextBox14
             // 
+            this.userBingData1.SetBindingName(this.myTextBox14, "Pos.JackPhotoPos");
             this.myTextBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox14.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox14.Format = "{0:F2}";
+            this.myTextBox14.Format = "F2";
             this.myTextBox14.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox14.Location = new System.Drawing.Point(659, 349);
             this.myTextBox14.Name = "myTextBox14";
@@ -665,9 +681,10 @@
             // 
             // myTextBox15
             // 
+            this.userBingData1.SetBindingName(this.myTextBox15, "Pos.JackPrePos");
             this.myTextBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox15.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox15.Format = "{0:F2}";
+            this.myTextBox15.Format = "F2";
             this.myTextBox15.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox15.Location = new System.Drawing.Point(659, 402);
             this.myTextBox15.Name = "myTextBox15";
@@ -679,9 +696,10 @@
             // myTextBox16
             // 
             this.myTextBox16.BackColor = System.Drawing.Color.Yellow;
+            this.userBingData1.SetBindingName(this.myTextBox16, "");
             this.myTextBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.myTextBox16.Font = new System.Drawing.Font("黑体", 20F);
-            this.myTextBox16.Format = "{0:F2}";
+            this.myTextBox16.Format = "F2";
             this.myTextBox16.InputType = HzControl.Communal.Controls.MyTextBox.eInputType.Float;
             this.myTextBox16.KeyBoard = false;
             this.myTextBox16.Location = new System.Drawing.Point(877, 348);
@@ -864,5 +882,6 @@
         private HzControl.Communal.Controls.MyTextBox myTextBox14;
         private HzControl.Communal.Controls.MyTextBox myTextBox15;
         private HzControl.Communal.Controls.MyTextBox myTextBox16;
+        private HzControl.Communal.Controls.UserBingData userBingData1;
     }
 }

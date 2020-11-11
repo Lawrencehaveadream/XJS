@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HZZH.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace HZZH.UI2.锡膏印刷
 
         private void 位置设置_Load(object sender, EventArgs e)
         {
-
+            userBingData1.SetBindingDataSource(Product.Inst);
         }
     }
 }

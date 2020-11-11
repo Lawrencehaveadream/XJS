@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HZZH.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,8 @@ namespace HZZH.UI2
         public MainForm()
         {
             InitializeComponent();
+
+            var va = Product.Inst;
 
             base.SetStyle(ControlStyles.UserPaint, true);
             base.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
@@ -40,7 +43,14 @@ namespace HZZH.UI2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Product.Inst.Save();
+
+            MessageShowForm2 messageShowForm = new MessageShowForm2();
+            messageShowForm.label1.Text = "确认安全，正常退出软件？";
+            if (messageShowForm.ShowDialog(this) == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

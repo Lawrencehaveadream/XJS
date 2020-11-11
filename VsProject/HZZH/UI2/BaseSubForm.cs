@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HzControl.Communal.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,6 @@ namespace HZZH.UI2
             InitializeComponent();
             this.TopLevel = false;
         }
-
 
         public bool IsShow { get; private set; }
 
@@ -43,14 +43,22 @@ namespace HZZH.UI2
             base.OnVisibleChanged(e);
         }
 
+        /// <summary>
+        /// 每次显示窗口
+        /// </summary>
         protected virtual void OnShown()
         { 
         
         }
 
+        /// <summary>
+        /// 每次影藏窗口
+        /// </summary>
         protected virtual void OnHide()
         { 
         
         }
+
+ 
     }
 }

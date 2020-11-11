@@ -8,11 +8,11 @@ using HzControl.Communal.Tools;
 using System.Reflection;
 using System.ComponentModel;
 
-namespace HZZH.Communal.Tools
+namespace HZZH.Database
 {
     public partial class Product
     {
-        public string Path = AppDomain.CurrentDomain.BaseDirectory + "db\\";
+        public readonly string Path = AppDomain.CurrentDomain.BaseDirectory + "db\\";
         private static AppConfig AppConfig;
 
         public static Product Inst { get; }
@@ -59,6 +59,11 @@ namespace HZZH.Communal.Tools
             {
                 SaveEvent(this, EventArgs.Empty);
             }
+        }
+
+        public void Save()
+        {
+            this.Save(this.Info.Name);
         }
 
         public void Load(string productName)

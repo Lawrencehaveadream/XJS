@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,19 +14,29 @@ namespace HzControl.Communal.Controls
     [ProvideProperty("BindingName", typeof(Control))]
     public class UserBingData : Component, IExtenderProvider
     {
-        //private static Timer
+        private static readonly Timer readValueTimer = new Timer();
+
         static UserBingData()
         {
-
+            readValueTimer.Interval = 200;
+            readValueTimer.Start();
         }
 
         public UserBingData()
-        { 
-        
+        {
+            readValueTimer.Tick += ReadValueTimer_Tick;
+            this.Disposed += UserBingData_Disposed;
         }
 
+        public UserBingData(IContainer container) : this()
+        {
+            if (container == null)
+            {
+                throw new ArgumentNullException("container");
+            }
 
-
+            container.Add(this);
+        }
 
         public bool CanExtend(object extendee)
         {
@@ -120,20 +131,88 @@ namespace HzControl.Communal.Controls
             if (ctrl.DataBindings[propertyName] != null)
             {
                 ctrl.DataBindings.Remove(ctrl.DataBindings[propertyName]);
-
+                ctrl.DataBindings[propertyName].BindingComplete -= UserBingData_BindingComplete;
             }
             ctrl.DataBindings.Add(propertyName, obj, name, true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged);
-            //ctrl.DataBindings[propertyName].BindingComplete += UserBingData_BindingComplete;
+            ctrl.DataBindings[propertyName].BindingComplete += UserBingData_BindingComplete;
+            if (ctrl is MyTextBox && ((MyTextBox)ctrl).InputType == MyTextBox.eInputType.Float)
+            {
+                ctrl.DataBindings[propertyName].FormattingEnabled = true;
+                ctrl.DataBindings[propertyName].FormatString = "F2";// ((MyTextBox)ctrl).Format;
+            }
         }
 
         private static void UserBingData_BindingComplete(object sender, BindingCompleteEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.BindingCompleteState == BindingCompleteState.Success && e.BindingCompleteContext == BindingCompleteContext.DataSourceUpdate)
+            {
+                //var va = e.Binding.DataSource;
+                //va.GetType().GetFields()[0].tye
+            }
         }
 
+        /// <summary>
+        /// 按照设置的属性路径绑定对象中的各属性
+        /// </summary>
+        /// <param name="dataSource"></param>
         public void SetBindingDataSource(object dataSource)
         {
+            foreach (Control item in hashtable.Keys)
+            {
+                string bindingString = GetBindingName(item);
+                if (string.IsNullOrWhiteSpace(bindingString))
+                {
+                    continue;
+                }
 
+                string[] strs = SplitBindingName(bindingString);
+                if (strs.Length == 1)
+                {
+                    SetBinding(item, "Text", dataSource, strs[0]);
+                }
+                else
+                {
+                    string sourceName = CombineBindingName(strs.Take(strs.Length - 1).ToArray());
+                    object source = GetBindingDataSource(dataSource, sourceName);
+                    SetBinding(item, "Text", source, strs.Last());
+                }
+            }
         }
+
+        /// <summary>
+        /// 从数据源中读取值
+        /// </summary>
+        public void ReadValue()
+        {
+            foreach (Control item in hashtable.Keys)
+            {
+                if (item.DataBindings.Count > 0)
+                {
+                    item.DataBindings[0].ReadValue();
+                }
+            }
+        }
+
+
+        private void UserBingData_Disposed(object sender, EventArgs e)
+        {
+            readValueTimer.Tick -= ReadValueTimer_Tick;
+        }
+
+        private void ReadValueTimer_Tick(object sender, EventArgs e)
+        {
+            foreach (Control item in hashtable.Keys)
+            {
+                if (item.FindForm().Visible == true&& item.DataBindings.Count > 0)
+                {
+                    if (item.Focused==false)
+                    {
+                        item.DataBindings[0].ReadValue();
+                    }
+                }
+            }
+        }
+
+
     }
 }

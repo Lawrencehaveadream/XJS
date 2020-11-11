@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using HZZH.Communal.Tools;
+using HZZH.Database;
 
 namespace HZZH.UI2
 {
