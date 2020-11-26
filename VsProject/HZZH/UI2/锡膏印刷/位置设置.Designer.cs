@@ -109,7 +109,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Location = new System.Drawing.Point(36, 252);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(239, 215);
@@ -713,6 +713,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1239, 606);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.myTextBox16);
             this.Controls.Add(this.myTextBox15);
             this.Controls.Add(this.myTextBox14);
@@ -757,7 +758,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button31);
             this.Controls.Add(this.button32);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button11);
@@ -777,7 +777,6 @@
             this.Controls.SetChildIndex(this.button11, 0);
             this.Controls.SetChildIndex(this.button10, 0);
             this.Controls.SetChildIndex(this.button9, 0);
-            this.Controls.SetChildIndex(this.pictureBox4, 0);
             this.Controls.SetChildIndex(this.button32, 0);
             this.Controls.SetChildIndex(this.button31, 0);
             this.Controls.SetChildIndex(this.label2, 0);
@@ -822,6 +821,7 @@
             this.Controls.SetChildIndex(this.myTextBox14, 0);
             this.Controls.SetChildIndex(this.myTextBox15, 0);
             this.Controls.SetChildIndex(this.myTextBox16, 0);
+            this.Controls.SetChildIndex(this.pictureBox4, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

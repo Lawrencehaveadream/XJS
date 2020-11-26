@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace HZZH.UI2
 {
@@ -87,11 +88,17 @@ namespace HZZH.UI2
                 if (showFrom != null)
                 {
                     showFrom.Hide();
+
+                    while (formStack.Contains(formName))
+                    {
+                        formStack.Pop();
+                    }
                 }
                 container.Controls.Clear();
                 showFrom = baseSubForm;
                 container.Controls.Add(showFrom);
                 showFrom.Show();
+                formStack.Push(formName);
                 SendMessage(container.Handle, WM_SETREDRAW, -1, 0);
                 container.Refresh();
             }
@@ -107,5 +114,15 @@ namespace HZZH.UI2
             container = ctrl;
         }
 
+
+        private static readonly Stack<string> formStack = new Stack<string>();
+        public static void Show()
+        {
+            if (formStack.Count > 1)
+            {
+                formStack.Pop();
+                Show(formStack.Peek());
+            }
+        }
     }
 }

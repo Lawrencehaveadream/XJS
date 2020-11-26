@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,7 @@ namespace HzControl.Communal.Controls
 
         public bool CanExtend(object extendee)
         {
-            return extendee is NumericUpDown || extendee is MyTextBox;
+            return /*extendee is NumericUpDown ||*/ extendee is MyTextBox;
         }
 
         private Hashtable hashtable = new Hashtable();
@@ -56,9 +57,26 @@ namespace HzControl.Communal.Controls
         public void SetBindingName(Control numeric, string name)
         {
             if (numeric == null) return;
-            hashtable[numeric] = name;
+
+            if (string.IsNullOrEmpty(name))
+            {
+                hashtable.Remove(numeric);
+            }
+            else
+            {
+                if (!hashtable.ContainsKey(numeric))
+                {
+                    numeric.Disposed += Numeric_Disposed;
+                }
+
+                hashtable[numeric] = name;
+            }
         }
 
+        private void Numeric_Disposed(object sender, EventArgs e)
+        {
+            hashtable.Remove(sender);
+        }
 
         public static object GetBindingDataSource(object source, string propertyName)
         {
@@ -126,30 +144,54 @@ namespace HzControl.Communal.Controls
             return list.ToArray();
         }
 
-        public static void SetBinding(Control ctrl, string propertyName, object obj, string name)
+        private void SetBindingObj(Control ctrl, string propertyName, object obj, string name)
+        {
+            Binding binding = SetBinding(ctrl, propertyName, obj, name);
+            binding.BindingComplete += UserBingData_BindingComplete;
+            if (ctrl is MyTextBox && ((MyTextBox)ctrl).InputType == MyTextBox.eInputType.Float)
+            {
+                binding.FormattingEnabled = true;
+                binding.FormatString = "F2";
+            }
+        }
+
+        public static Binding SetBinding(Control ctrl, string propertyName, object obj, string name)
         {
             if (ctrl.DataBindings[propertyName] != null)
             {
                 ctrl.DataBindings.Remove(ctrl.DataBindings[propertyName]);
-                ctrl.DataBindings[propertyName].BindingComplete -= UserBingData_BindingComplete;
             }
             ctrl.DataBindings.Add(propertyName, obj, name, true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged);
-            ctrl.DataBindings[propertyName].BindingComplete += UserBingData_BindingComplete;
-            if (ctrl is MyTextBox && ((MyTextBox)ctrl).InputType == MyTextBox.eInputType.Float)
-            {
-                ctrl.DataBindings[propertyName].FormattingEnabled = true;
-                ctrl.DataBindings[propertyName].FormatString = "F2";// ((MyTextBox)ctrl).Format;
-            }
+            return ctrl.DataBindings[propertyName];
         }
 
-        private static void UserBingData_BindingComplete(object sender, BindingCompleteEventArgs e)
+
+        private void UserBingData_BindingComplete(object sender, BindingCompleteEventArgs e)
         {
             if (e.BindingCompleteState == BindingCompleteState.Success && e.BindingCompleteContext == BindingCompleteContext.DataSourceUpdate)
             {
-                //var va = e.Binding.DataSource;
-                //va.GetType().GetFields()[0].tye
+                EventHandler temp = DataSourceUpdate;
+                if (temp != null)
+                {
+                    temp.Invoke(e.Binding.Control, EventArgs.Empty);
+                }
+            }
+
+            if (e.BindingCompleteState == BindingCompleteState.Success && e.BindingCompleteContext == BindingCompleteContext.ControlUpdate)
+            {
+                EventHandler temp = ControlUpdate;
+                if (temp != null)
+                {
+                    temp.Invoke(e.Binding.Control, EventArgs.Empty);
+                }
             }
         }
+
+        [Description("指示正在从控件属性更新数据源值")]
+        public event EventHandler DataSourceUpdate;
+        [Description("指示正在从数据源更新控件属性值")]
+        public event EventHandler ControlUpdate;
+
 
         /// <summary>
         /// 按照设置的属性路径绑定对象中的各属性
@@ -168,13 +210,13 @@ namespace HzControl.Communal.Controls
                 string[] strs = SplitBindingName(bindingString);
                 if (strs.Length == 1)
                 {
-                    SetBinding(item, "Text", dataSource, strs[0]);
+                    SetBindingObj(item, "Text", dataSource, strs[0]);
                 }
                 else
                 {
                     string sourceName = CombineBindingName(strs.Take(strs.Length - 1).ToArray());
                     object source = GetBindingDataSource(dataSource, sourceName);
-                    SetBinding(item, "Text", source, strs.Last());
+                    SetBindingObj(item, "Text", source, strs.Last());
                 }
             }
         }
@@ -203,16 +245,30 @@ namespace HzControl.Communal.Controls
         {
             foreach (Control item in hashtable.Keys)
             {
-                if (item.FindForm().Visible == true&& item.DataBindings.Count > 0)
+                if (item.FindForm().Visible == true && item.DataBindings.Count > 0)
                 {
-                    if (item.Focused==false)
+                    if (item.Focused == false)
                     {
-                        item.DataBindings[0].ReadValue();
+                        Binding binding = item.DataBindings[0];
+                        string obj1 = binding.Control.GetType().GetProperty(binding.PropertyName).GetValue(binding.Control).ToString();
+                        string obj2 = null;
+                        if (binding.FormattingEnabled == true)
+                        {
+                            obj2 = string.Format("{0:" + binding.FormatString + "}", binding.DataSource.GetType().GetProperty(binding.BindingMemberInfo.BindingField).GetValue(binding.DataSource));
+                        }
+                        else
+                        {
+                            obj2 = binding.DataSource.GetType().GetProperty(binding.BindingMemberInfo.BindingField).GetValue(binding.DataSource).ToString();
+                        }
+
+                        if (string.Equals(obj1, obj2) == false)
+                        {
+                            item.DataBindings[0].ReadValue();
+                        }
                     }
                 }
             }
         }
-
 
     }
 }

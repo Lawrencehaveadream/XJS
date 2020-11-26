@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace HZZH.UI2
 {
+    /// <summary>
+    /// 窗体基础继承类
+    /// </summary>
     public partial class BaseSubForm : Form
     {
         public BaseSubForm()
@@ -26,7 +29,6 @@ namespace HZZH.UI2
             IsShow = true;
             base.OnShown(e);
         }
-
         protected override void OnVisibleChanged(EventArgs e)
         {
             if (IsShow == false && this.Visible == true)
@@ -50,7 +52,6 @@ namespace HZZH.UI2
         { 
         
         }
-
         /// <summary>
         /// 每次影藏窗口
         /// </summary>
@@ -58,7 +59,5 @@ namespace HZZH.UI2
         { 
         
         }
-
- 
     }
 }

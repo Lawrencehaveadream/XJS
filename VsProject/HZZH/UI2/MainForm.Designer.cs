@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_quiet = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +45,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btn_quiet);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -63,12 +63,13 @@
             this.button3.TabStop = false;
             this.button3.Text = "报警清除";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(55, 45);
+            this.label2.Location = new System.Drawing.Point(12, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(348, 27);
             this.label2.TabIndex = 3;
@@ -78,7 +79,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("黑体", 25.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(361, 23);
+            this.label1.Location = new System.Drawing.Point(395, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(358, 43);
             this.label1.TabIndex = 0;
@@ -96,17 +97,17 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btn_quiet
             // 
-            this.button1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(1104, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 58);
-            this.button1.TabIndex = 2;
-            this.button1.TabStop = false;
-            this.button1.Text = "退出系统";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_quiet.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_quiet.Location = new System.Drawing.Point(1104, 15);
+            this.btn_quiet.Name = "btn_quiet";
+            this.btn_quiet.Size = new System.Drawing.Size(123, 58);
+            this.btn_quiet.TabIndex = 2;
+            this.btn_quiet.TabStop = false;
+            this.btn_quiet.Text = "退出系统";
+            this.btn_quiet.UseVisualStyleBackColor = true;
+            this.btn_quiet.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -142,7 +143,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_quiet;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

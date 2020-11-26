@@ -17,7 +17,10 @@ namespace HZZH.Logic.LogicMain
 
         protected override void LogicImpl()
         {
-            throw new NotImplementedException();
+            switch (LG.Step)
+            { 
+            
+            }
         }
     }
 }

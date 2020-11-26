@@ -305,6 +305,7 @@
             this.button9.TabIndex = 58;
             this.button9.Text = "照明";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -375,6 +376,7 @@
             this.button12.TabIndex = 64;
             this.button12.Text = "生产记录";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // label17
             // 

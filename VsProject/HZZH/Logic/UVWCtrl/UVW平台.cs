@@ -1,5 +1,6 @@
 ﻿using CommonRs;
 using Device;
+using HzControl.Communal.Controls;
 using HzControl.Logic;
 using HZZH.Logic.Commmon;
 using System;
@@ -64,32 +65,21 @@ namespace HZZH.Logic.UVWCtrl
         /// <param name="yTPos"></param>
         /// <param name="rTpos"></param>
         /// <returns></returns>
-        public int MoveABS(float xTPos,float yTPos,float rTpos)
+        public bool MoveABS(float xTPos,float yTPos,float rTpos)
         {
             return MoveRel(xTPos - CurrPos.X, yTPos - CurrPos.Y, rTpos - CurrPos.R);
         }
 
-        /// <summary>
-        /// UVW平台相对定位
-        /// </summary>
-        /// <param name="xTPos"></param>
-        /// <param name="yTPos"></param>
-        /// <param name="rTpos"></param>
-        /// <returns></returns>
-        public int MoveRel(float xTPos, float yTPos, float rTpos)
+        private int status = 0;
+        private void MoveRelImpl(object obj)
         {
-            // 禁止平台运行时候再次调用
-            if (Status == 1)
-            {
-                return 0;
-            }
-
+            Tuple<float, float, float> tuple = (Tuple<float, float, float>)obj;
             float rx1, rx2, ry;
-            ConvertXYR.RotateXYR_UnchangedCenter(rTpos, CurrPos.R, out rx1, out rx2, out ry);
+            ConvertXYR.RotateXYR_UnchangedCenter(tuple.Item1, CurrPos.R, out rx1, out rx2, out ry);
             float xx1, xx2, xy;
-            ConvertXYR.RelMoveX(xTPos, out xx1, out xx2, out xy);
+            ConvertXYR.RelMoveX(tuple.Item2, out xx1, out xx2, out xy);
             float yx1, yx2, yy;
-            ConvertXYR.RelMoveY(yTPos, out yx1, out yx2, out yy);
+            ConvertXYR.RelMoveY(tuple.Item3, out yx1, out yx2, out yy);
 
             float x1 = rx1 + xx1 + yx1;
             float x2 = rx2 + xx2 + yx2;
@@ -104,18 +94,51 @@ namespace HZZH.Logic.UVWCtrl
                 Thread.Sleep(5);
             }
 
-            CurrPos.X += xTPos;
-            CurrPos.Y += yTPos;
-            CurrPos.R += rTpos;
+            CurrPos.X += tuple.Item1;
+            CurrPos.Y += tuple.Item2;
+            CurrPos.R += tuple.Item3;
+            status = 0;
+        }
 
-            return 1;
+        /// <summary>
+        /// UVW平台相对定位
+        /// </summary>
+        /// <param name="xTPos"></param>
+        /// <param name="yTPos"></param>
+        /// <param name="rTpos"></param>
+        /// <returns></returns>
+        public bool MoveRel(float xTPos, float yTPos, float rTpos)
+        {
+            // 禁止平台运行时候再次调用
+            if (Status == 1)
+            {
+                return false;
+            }
+
+            Tuple<float, float, float> tuple = new Tuple<float, float, float>(xTPos, yTPos, rTpos);
+            status = 1;
+            ThreadPool.QueueUserWorkItem(MoveRelImpl, tuple);
+            return true;
         }
 
         /// <summary>
         /// UVW平台回原点
         /// </summary>
         /// <returns></returns>
-        public int Home()
+        public bool Home()
+        {
+            // 禁止平台运行时候再次调用
+            if (Status == 1)
+            {
+                return false;
+            }
+
+            status = 1;
+            ThreadPool.QueueUserWorkItem(HomeImpl);
+            return true;
+        }
+
+        private void HomeImpl(object obj)
         {
             Ax_X1轴.MC_Home();
             Ax_X2轴.MC_Home();
@@ -136,9 +159,8 @@ namespace HZZH.Logic.UVWCtrl
             }
             CurrPos.X = 0;
             CurrPos.Y = 0;
-            CurrPos.R = 0;
-
-            return 1;
+            CurrPos.R = 0; 
+            status = 0;
         }
     }
 }

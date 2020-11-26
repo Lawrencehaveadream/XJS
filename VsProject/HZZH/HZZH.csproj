@@ -132,11 +132,20 @@
     <Compile Include="Common\Config\ConfigUser.cs" />
     <Compile Include="Common\Config\HandleConfig.cs" />
     <Compile Include="Common\Typedef\LogicDataDef.cs" />
+    <Compile Include="Communal\Control\BorderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Communal\Control\FigureForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Communal\Control\FigureForm.designer.cs">
       <DependentUpon>FigureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Communal\Control\MyButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Communal\Control\MyButton.designer.cs">
+      <DependentUpon>MyButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Communal\Control\MyTextBox.cs">
       <SubType>Component</SubType>
@@ -158,6 +167,7 @@
     <Compile Include="Logic\SubLogicPrg\轨道出料流程.cs" />
     <Compile Include="Logic\SubLogicPrg\锡膏印刷流程.cs" />
     <Compile Include="Logic\UVWCtrl\UVWConvertXYR.cs" />
+    <Compile Include="Logic\UVWCtrl\UVW自动标定.cs" />
     <Compile Include="UI2\BaseSubForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,9 +253,13 @@
     <Compile Include="UI2\锡膏印刷\VisForm.Designer.cs">
       <DependentUpon>VisForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vision\CameraDevice.cs" />
     <Compile Include="Vision\PointLocation.cs" />
     <EmbeddedResource Include="Communal\Control\FigureForm.resx">
       <DependentUpon>FigureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Communal\Control\MyButton.resx">
+      <DependentUpon>MyButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI2\BaseSubForm.resx">
       <DependentUpon>BaseSubForm.cs</DependentUpon>
@@ -486,6 +500,25 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxSDK_2000Lib">
+      <Guid>{C7C2AF82-CF1A-496E-823E-F2ED7F75F1D0}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="SDK_2000Lib">
+      <Guid>{C7C2AF82-CF1A-496E-823E-F2ED7F75F1D0}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

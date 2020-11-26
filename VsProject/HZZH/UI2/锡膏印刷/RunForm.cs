@@ -42,8 +42,6 @@ namespace HZZH.UI2
 
         
         }
-
-       
         private void button2_Click(object sender, EventArgs e)
         {
             MachineAlarm.SetAlarm(AlarmLevelEnum.Level2, "停止报警");
@@ -54,6 +52,7 @@ namespace HZZH.UI2
         private void button3_Click(object sender, EventArgs e)
         {
             MachineAlarm.ClearAlarm();
+            TaskManager.Default.FSM.Change(FSMStaDef.RESET);
          
         }
 
@@ -72,7 +71,15 @@ namespace HZZH.UI2
             //TaskManager.Default.LoadLogicPara(filePath);
         }
 
+        private void button12_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

@@ -63,7 +63,7 @@
             this.textBox1.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.Location = new System.Drawing.Point(153, 78);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(105, 31);
+            this.textBox1.Size = new System.Drawing.Size(105, 37);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "88888.88";
             // 
@@ -72,7 +72,7 @@
             this.textBox2.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox2.Location = new System.Drawing.Point(273, 78);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(105, 31);
+            this.textBox2.Size = new System.Drawing.Size(105, 37);
             this.textBox2.TabIndex = 8;
             this.textBox2.Text = "88888.88";
             // 
@@ -83,7 +83,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(188, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 21);
+            this.label2.Size = new System.Drawing.Size(26, 27);
             this.label2.TabIndex = 9;
             this.label2.Text = "X";
             // 
@@ -94,7 +94,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(310, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 21);
+            this.label3.Size = new System.Drawing.Size(26, 27);
             this.label3.TabIndex = 10;
             this.label3.Text = "Z";
             // 
@@ -123,7 +123,7 @@
             this.textBox3.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox3.Location = new System.Drawing.Point(273, 137);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(105, 31);
+            this.textBox3.Size = new System.Drawing.Size(105, 37);
             this.textBox3.TabIndex = 14;
             this.textBox3.Text = "88888.88";
             // 
@@ -142,7 +142,7 @@
             this.textBox4.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox4.Location = new System.Drawing.Point(153, 137);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(105, 31);
+            this.textBox4.Size = new System.Drawing.Size(105, 37);
             this.textBox4.TabIndex = 12;
             this.textBox4.Text = "88888.88";
             // 

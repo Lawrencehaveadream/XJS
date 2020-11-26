@@ -20,7 +20,7 @@ namespace HZZH.UI2
 
             var va = Product.Inst;
 
-            base.SetStyle(ControlStyles.UserPaint, true);
+            base.SetStyle(ControlStyles.UserPaint, true);//减少屏幕闪烁
             base.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             base.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             base.UpdateStyles();
@@ -30,7 +30,7 @@ namespace HZZH.UI2
         {
             FrmMgr.RegisterContainer(this.panel2);
             FrmMgr.Show("RunForm");
-            Logic.LogicMain.TaskMain.Init();
+            Logic.LogicMain.TaskMain.Init();//任务集合初始化，加入到任务链表
         }
 
         protected override void WndProc(ref Message m)
@@ -40,32 +40,39 @@ namespace HZZH.UI2
                 base.WndProc(ref m);
             }
         }
-
+        /// <summary>
+        /// 退出软件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             Product.Inst.Save();
 
             MessageShowForm2 messageShowForm = new MessageShowForm2();
-            messageShowForm.label1.Text = "确认安全，正常退出软件？";
+            messageShowForm.label1.Text = "确认退出软件？";
             if (messageShowForm.ShowDialog(this) == DialogResult.OK)
             {
                 this.Close();
             }
         }
-
+        /// <summary>
+        /// 窗口最小化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        /// <summary>
+        /// 清除所有报警
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3_Click(object sender, EventArgs e)
+        {
 
-        //protected override System.Windows.Forms.CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        System.Windows.Forms.CreateParams createParams = base.CreateParams;
-        //        createParams.ExStyle |= 0x80000;
-        //        return createParams;
-        //    }
-        //}
+        }
     }
 }
